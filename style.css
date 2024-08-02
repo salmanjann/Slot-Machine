@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #373F47;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slotMachine {
+    width: 30%;
+    height: 60%;
+    background-color: #6C91C2;
+    border-radius: 10px;
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reels {
+    width: 31%;
+    background-color: #F2EFEA;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slots {
+    min-height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    transition-property: transform;
+    transition-duration: 12s;
+    transition-timing-function: ease-in-out;
+}
+
+#reel1::before {
+    content: '';
+    border-width: 20px 0 20px 20px;
+    /* Top, Right, Bottom, Left */
+    border-style: solid;
+    border-color: transparent transparent transparent #1E1E24;
+    /* Transparent on top, right, and bottom */
+    position: absolute;
+    left: 0;
+    top: 45%;
+}
+
+#reel3::before {
+    content: '';
+    border-width: 20px 20px 20px 0;
+    /* Top, Right, Bottom, Left */
+    border-style: solid;
+    border-color: transparent #1E1E24 transparent transparent;
+    /* Transparent on right, top, and bottom */
+    position: absolute;
+    right: 0;
+    top: 45%;
+}
+
+.info {
+    text-align: center;
+}
+
+h1 {
+    font-family: sans-serif;
+}
+
+/* Lever styles */
+.spinButtonDisabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.lever-control {
+    width: 8%;
+    height: 10%;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+.lever {
+    z-index: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transform-origin: 0% 60%;
+    transition: 6s transform ease-in-out;
+}
+
+.knob {
+    background-color: #FAB700;
+    width: 20%;
+    height: 30%;
+}
+
+.stick {
+    width: 70%;
+    height: 20%;
+    background-color: white;
+}
+
+.lever,
+.lever-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.lever-base {
+    width: 15%;
+    height: 100%;
+    left: 0;
+}
+
+.pivot {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 100% 100% 0;
+    background-color: #D0D2D3;
+}
+
+/* Overlay */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#timerVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#overlayImage,
+#overlayVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
+
+#overlayImage {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+/* For iPads in portrait mode */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    
+}
+
+/* For iPads in landscape mode */
+@media only screen and (max-width: 1024px) {
+    .slotMachine{
+        width: 70%;
+        height: 70%;
+        padding: 2.5%;
+    }
+
+    .slots{
+        font-size: 8rem;
+    }
+
+    .lever-control {
+        width: 15%;
+    }
+
+    #reel1::before {
+        border-width: 30px 0 30px 30px;
+    }
+    
+    #reel3::before {
+        border-width: 30px 30px 30px 0;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .slotMachine{
+        width: 70%;
+        height: 70%;
+        padding: 2.5%;
+    }
+
+    .slots{
+        font-size: 3rem;
+    }
+
+    .lever-control {
+        width: 15%;
+    }
+
+    #reel1::before {
+        border-width: 10px 0 10px 10px;
+    }
+    
+    #reel3::before {
+        border-width: 10px 10px 10px 0;
+    }
+}
